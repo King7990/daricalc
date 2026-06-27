@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DariCalc v2.0</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+          <link rel="stylesheet" href="events/Christmas.css">
+          <link rel="stylesheet" href="events/Christmas.css">
+          <link rel="stylesheet" href="events/NewYear.css">
+          <link rel="stylesheet" href="events/halloween.css">
+          <link rel="stylesheet" href="events/easter.css">
+          <link rel="stylesheet" href="events/Naija.css">
+
+</head>
+
+<body>
+
+<!-- ================================= -->
+<!-- STARTUP SCREEN -->
+<!-- ================================= -->
+
+<div id="startup">
+
+    <div class="startup-logo">
+
+        🌌
+
+    </div>
+
+    <h1>DariCalc</h1>
+
+    <p>Loading...</p>
+
+    <div class="loading-bar">
+
+        <div class="loading-fill"></div>
+
+    </div>
+
+    <small>Version 2.0 Stable</small>
+
+</div>
+
+<!-- ================================= -->
+<!-- BACKGROUND -->
+<!-- ================================= -->
+
+<div class="background"></div>
+
+<div id="eventLayer"></div>
+<!-- ================================= -->
+<!-- MAIN CALCULATOR -->
+<!-- ================================= -->
+
+<div class="calculator">
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        <div class="logo">
+
+            <span class="logo-circle"></span>
+
+            DariCalc
+
+        </div>
+
+        <div class="top-buttons">
+
+            <button
+                id="historyBtn"
+                class="icon-btn"
+                title="History">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+            </button>
+
+            <button
+                id="settingsBtn"
+                class="icon-btn"
+                title="Settings">
+
+                <i class="fa-solid fa-gear"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- DISPLAY -->
+
+    <div class="display">
+
+        <div
+            id="expression"
+            class="expression">
+
+            0
+
+        </div>
+
+        <div
+            id="result"
+            class="result">
+
+            0
+
+        </div>
+
+    </div>
+
+    <!-- BUTTON GRID START -->
+
+    <div class="buttons">
+
+            <!-- MEMORY -->
+
+    <button class="memory" data-action="mc">MC</button>
+    <button class="memory" data-action="mr">MR</button>
+    <button class="memory" data-action="mplus">M+</button>
+    <button class="memory" data-action="mminus">M-</button>
+
+    <!-- FUNCTIONS -->
+
+    <button class="function" data-action="sqrt">√</button>
+    <button class="function" data-action="square">x²</button>
+    <button class="function" data-action="percent">%</button>
+    <button class="operator">÷</button>
+
+    <!-- ROW -->
+
+    <button class="number">7</button>
+    <button class="number">8</button>
+    <button class="number">9</button>
+    <button class="operator">×</button>
+
+    <!-- ROW -->
+
+    <button class="number">4</button>
+    <button class="number">5</button>
+    <button class="number">6</button>
+    <button class="operator">−</button>
+
+    <!-- ROW -->
+
+    <button class="number">1</button>
+    <button class="number">2</button>
+    <button class="number">3</button>
+    <button class="operator">+</button>
+
+    <!-- LAST ROW -->
+
+    <button class="function" data-action="negate">+/-</button>
+    <button class="number">0</button>
+    <button class="number">.</button>
+    <button class="equals" data-action="equals">=</button>
+
+</div>
+
+</div>
+
+<!-- ================================= -->
+<!-- SETTINGS PANEL -->
+<!-- ================================= -->
+
+<div id="settingsPanel" class="settings-panel">
+
+    <!-- Header -->
+
+    <div class="settings-header">
+
+        <div>
+
+            <h2>⚙ Dari Settings</h2>
+
+            <p>Customize DariCalc</p>
+
+        </div>
+
+        <button
+            id="closeSettings"
+            class="close-btn">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <!-- Body -->
+
+    <div class="settings-body">
+
+        <!-- Sidebar -->
+
+        <aside class="settings-sidebar">
+
+            <button class="nav-item active"
+                    data-page="appearance">
+
+                🎨 Appearance
+
+            </button>
+
+            <button class="nav-item"
+                    data-page="animations">
+
+                ✨ Animations
+
+            </button>
+
+            <button class="nav-item"
+                    data-page="holidays">
+
+                🎉 Holidays
+
+            </button>
+
+            <button class="nav-item"
+                    data-page="calculator">
+
+                🧮 Calculator
+
+            </button>
+
+            <button class="nav-item"
+                    data-page="about">
+
+                ℹ About
+
+            </button>
+
+        </aside>
+
+        <!-- Content -->
+
+        <main class="settings-main">
+
+            <!-- Appearance -->
+
+            <div
+                class="tab-page active"
+                id="appearance">
+
+                <div class="setting-card">
+
+                    <h3>Theme</h3>
+
+                    <select id="themeSelect">
+
+                        <option value="galaxy">🌌 Galaxy</option>
+                        <option value="ocean">🌊 Ocean</option>
+                        <option value="emerald">🌿 Emerald</option>
+                        <option value="sakura">🌸 Sakura</option>
+                        <option value="sunset">🌅 Sunset</option>
+                        <option value="midnight">🌙 Midnight</option>
+                        <option value="amoled">⚫ AMOLED</option>
+                        <option value="neon">⚡ Neon</option>
+                        <option value="gold">🥇 Gold</option>
+                        <option value="naija">🇳🇬 Naija</option>
+
+                    </select>
+
+                </div>
+
+                <div class="setting-card">
+
+                    <h3>Accent Color</h3>
+                    <p>CURRENTLY UNAVAILABLE :]</p>
+
+                    <input
+                        id="accentPicker"
+                        type="color"
+                        value="#5b8cff">
+                        
+
+                </div>
+
+            </div>
+
+            <!-- Animations -->
+
+            <div
+                class="tab-page"
+                id="animations">
+
+                <div class="setting-card">
+
+                    <h3>Animations</h3>
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="animationToggle"
+                            checked>
+
+                        Enable Animations
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- Holidays -->
+
+            <div
+                class="tab-page"
+                id="holidays">
+
+              <div class="setting-card">
+
+    <h3>🎉 Holiday Events</h3>
+
+    <div class="event-grid">
+
+        <button class="event-btn active" data-event="none">✨ Default</button>
+
+        <button class="event-btn" data-event="halloween">🎃 Halloween</button>
+
+        <button class="event-btn" data-event="christmas">🎄 Christmas</button>
+
+        <button class="event-btn" data-event="valentine">❤️ Valentine</button>
+
+        <button class="event-btn" data-event="easter">🐣 Easter</button>
+
+        <button class="event-btn" data-event="newyear">🎆 New Year</button>
+
+        <button class="event-btn" data-event="naija">🇳🇬 Nigeria</button>
+
+    </div>
+
+</div>
+            </div>
+
+            <!-- Calculator -->
+
+            <div
+                class="tab-page"
+                id="calculator">
+
+                <div class="setting-card">
+
+                    <h3>Calculator</h3>
+
+                    <p>More calculator settings coming in DariCalc v3.0.</p>
+
+                </div>
+
+            </div>
+
+            <!-- About -->
+
+            <div
+                class="tab-page"
+                id="about">
+
+                <div class="setting-card">
+
+                    <h3>DariCalc</h3>
+
+                    <p><strong>Version:</strong> 2.0 Stable</p>
+
+                    <p><strong>Developer:</strong> Darius</p>
+
+                    <p>Made with HTML, CSS & JavaScript.</p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<!-- ================================= -->
+<!-- HISTORY PANEL -->
+<!-- ================================= -->
+
+<div class="history-panel">
+
+    <div class="history-header">
+
+        <h2>
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            History
+        </h2>
+
+        <button
+            id="clearHistory"
+            class="icon-btn">
+
+            <i class="fa-solid fa-trash"></i>
+
+        </button>
+
+    </div>
+
+    <input
+        type="text"
+        id="historySearch"
+        placeholder="Search history...">
+
+    <div id="historyList">
+
+        <div class="history-empty">
+
+            No calculations yet.
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================================= -->
+<!-- TOAST -->
+<!-- ================================= -->
+
+<div id="toast"></div>
+
+<!-- ================================= -->
+<!-- SCRIPT -->
+<!-- ================================= -->
+
+<script src="script.js"></script>
+<script src="events/Christmas.js"></script>
+<script src="events/halloween.js"></script>
+<script src="events/valentine.js"></script>
+<script src="events/NewYear.js"></script>
+<script src="events/easter.js"></script>
+<script src="events/Naija.js"></script>
+
+
+</body>
+
+</html>

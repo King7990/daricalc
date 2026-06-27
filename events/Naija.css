@@ -1,0 +1,47 @@
+.naija-particle{
+
+    position:fixed;
+
+    top:-50px;
+
+    pointer-events:none;
+
+    user-select:none;
+
+    z-index:-1;
+
+    animation:naijaFall linear forwards;
+
+    filter:drop-shadow(0 0 8px lime);
+
+}
+
+@keyframes naijaFall{
+
+    from{
+
+        transform:
+        translateY(-40px)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(540deg);
+
+        opacity:0;
+
+    }
+
+}
